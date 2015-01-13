@@ -1,0 +1,18 @@
+set nosmoothscroll
+set autoupdategist
+set autohidecursor
+set noautofocus
+
+let hintcharacters = "asdfghjkl"
+let searchalias g = "google"
+let searchalias a = "amazon"
+let blacklists = ["https://mail.google.com/*", "https://frcv.net/ttrss/*"]
+
+" Mappings
+map R reloadTabUncached
+map d closeTab
+map u lastClosedTab
+map H goBack
+map L goForward
+map J previousTab
+map K nextTab

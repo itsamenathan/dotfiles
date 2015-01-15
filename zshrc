@@ -1,3 +1,5 @@
+[ -d ~/.myzsh ] || git clone -b dev https://github.com/myzsh/myzsh.git ~/.myzsh
+
 # This is the base of the new zsh directory
 MYZSH="$HOME/.myzsh"
 
@@ -26,7 +28,7 @@ TITLE=(pwd)
 # They shouldn't generate output.
 EXTRA=(ssh-add localbin completions lesscolors lscolors ll coloncolon longcmd safe-paste tmux history alwaystmux cdtmp dotfiles docker)
 
-PR_PRIMARY='$PR_GREEN'
+PR_PRIMARY='$PR_CYAN'
 
 ################################################################################
 # This kicks off our processing now that we have variables

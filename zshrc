@@ -1,6 +1,7 @@
-[ -d ~/.myzsh ] || git clone -b dev https://github.com/myzsh/myzsh.git ~/.myzsh
+[ -d ~/.myzsh ] || git clone https://github.com/myzsh/myzsh.git ~/.myzsh
 [ -d ~/.myzsh/remotes/myzsh-dotfiles ] || git clone https://github.com/myzsh/myzsh-dotfiles.git  ~/.myzsh/remotes/myzsh-dotfiles
 [ -d ~/.myzsh/remotes/myzsh-docker ] || git clone https://github.com/myzsh/myzsh-docker.git  ~/.myzsh/remotes/myzsh-docker
+[ -d ~/dotfiles ] || git clone --recursive https://frcv.net/git/git/itsamenathan/dotfiles.git ~/dotfiles
 
 # This is the base of the new zsh directory
 MYZSH="$HOME/.myzsh"

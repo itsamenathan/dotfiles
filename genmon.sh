@@ -16,7 +16,7 @@ F_getgitary (){
   [ $1 ] && printSTAT $prefix
 }
 
-source $HOME/bin/bashter
+source $HOME/.bashter/bashter
 
 ## Color Batt
 if [ $STAT_BATT_P -le 15 ]; then

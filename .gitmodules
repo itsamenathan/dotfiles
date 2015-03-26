@@ -25,3 +25,6 @@
 [submodule "vim/bundle/vim-snippets"]
 	path = vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "bashter"]
+	path = bashter
+	url = https://github.com/itsamenathan/bashter

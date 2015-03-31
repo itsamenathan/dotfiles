@@ -1,8 +1,57 @@
+ " Note: Skip initialization for vim-tiny or vim-small.
+ if !1 | finish | endif
+
+if !isdirectory($HOME.'/.vim/bundle/neobundle')
+  call system('git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim')
+endif
+
+ if has('vim_starting')
+   if &compatible
+     set nocompatible               " Be iMproved
+   endif
+
+   " Required:
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+ endif
+
+ " Required:
+ call neobundle#begin(expand('~/.vim/bundle/'))
+
+ " Let NeoBundle manage NeoBundle
+ " Required:
+ NeoBundle 'https://github.com/Shougo/neobundle.vim.git', { 'directory': 'neobundle' }
+ NeoBundle 'https://github.com/scrooloose/syntastic.git', { 'directory': 'syntastic' }
+ NeoBundle 'https://github.com/airblade/vim-gitgutter.git', { 'directory': 'gitgutter' }
+ NeoBundle 'https://github.com/vimwiki/vimwiki.git', { 'directory': 'vimwiki' }
+ NeoBundle 'https://github.com/sjl/gundo.vim.git', { 'directory': 'gundo' }
+ NeoBundle 'https://github.com/ervandew/supertab.git', { 'directory': 'supertab' }
+ NeoBundle 'https://github.com/tomtom/tlib_vim.git', { 'directory': 'tlib' }
+ NeoBundle 'https://github.com/MarcWeber/vim-addon-mw-utils.git', { 'directory': 'vim-addon-mw-utils' }
+ NeoBundle 'https://github.com/garbas/vim-snipmate.git', { 'directory': 'snipmate' }
+ NeoBundle 'https://github.com/honza/vim-snippets.git', { 'directory': 'vim-snippets' }
+ NeoBundle 'https://github.com/tpope/vim-fugitive.git', { 'directory': 'fugitive' }
+
+
+ " My Bundles here:
+ " Refer to |:NeoBundle-examples|.
+ " Note: You don't set neobundle setting in .gvimrc!
+
+ call neobundle#end()
+
+ " Required:
+ filetype plugin indent on
+
+ " If there are uninstalled bundles found on startup,
+ " this will conveniently prompt you to install them.
+ NeoBundleCheck
+
+
+
              "for vimwiki
 set nocompatible
 
              "for pathogen https://github.com/scrooloose/syntastic
-execute pathogen#infect()
+"execute pathogen#infect()
 
              " syntax highlighting
 syntax on

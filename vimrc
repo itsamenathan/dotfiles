@@ -19,17 +19,22 @@ endif
 
  " Let NeoBundle manage NeoBundle
  " Required:
- NeoBundle 'https://github.com/Shougo/neobundle.vim.git', { 'directory': 'neobundle' }
- NeoBundle 'https://github.com/scrooloose/syntastic.git', { 'directory': 'syntastic' }
+ NeoBundle 'https://github.com/bling/vim-airline.git', { 'directory': 'airline' }
+ let g:airline_powerline_fonts = 1
+ let g:airline_theme='murmur'
+ NeoBundle 'https://github.com/ntpeters/vim-better-whitespace.git', { 'directory': 'better-whitespace' }
+ NeoBundle 'https://github.com/tpope/vim-fugitive.git', { 'directory': 'fugitive' }
  NeoBundle 'https://github.com/airblade/vim-gitgutter.git', { 'directory': 'gitgutter' }
- NeoBundle 'https://github.com/vimwiki/vimwiki.git', { 'directory': 'vimwiki' }
  NeoBundle 'https://github.com/sjl/gundo.vim.git', { 'directory': 'gundo' }
+ NeoBundle 'https://github.com/Shougo/neobundle.vim.git', { 'directory': 'neobundle' }
+ NeoBundle 'https://github.com/garbas/vim-snipmate.git', { 'directory': 'snipmate' }
+ NeoBundle 'https://github.com/honza/vim-snippets.git', { 'directory': 'snippets' }
  NeoBundle 'https://github.com/ervandew/supertab.git', { 'directory': 'supertab' }
+ NeoBundle 'https://github.com/scrooloose/syntastic.git', { 'directory': 'syntastic' }
  NeoBundle 'https://github.com/tomtom/tlib_vim.git', { 'directory': 'tlib' }
  NeoBundle 'https://github.com/MarcWeber/vim-addon-mw-utils.git', { 'directory': 'vim-addon-mw-utils' }
- NeoBundle 'https://github.com/garbas/vim-snipmate.git', { 'directory': 'snipmate' }
- NeoBundle 'https://github.com/honza/vim-snippets.git', { 'directory': 'vim-snippets' }
- NeoBundle 'https://github.com/tpope/vim-fugitive.git', { 'directory': 'fugitive' }
+ NeoBundle 'https://github.com/vimwiki/vimwiki.git', { 'directory': 'vimwiki' }
+
 
 
  " My Bundles here:
@@ -59,13 +64,13 @@ set background=dark
 
              " figure out file type
 "filetype plugin on
-filetype on  
+filetype on
 filetype plugin indent on
 
              " indent stuff
 set smarttab
 set autoindent
-             " expand tabs to spaces 
+             " expand tabs to spaces
 set et
              " shift width
 set sw=2
@@ -75,10 +80,10 @@ set ic
 
              " set status line
 set statusline=%<%f\ %h%m%r%=%-20.(line=%l,col=%c%V,totlin=%L%)
-set laststatus=2 
+set laststatus=2
 
              " highlit search
-set hlsearch 
+set hlsearch
 
              " Persistent undo
 if !isdirectory($HOME.'/.vim/undodir')

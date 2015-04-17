@@ -30,7 +30,7 @@ TITLE=(pwd)
 
 # This is the list of modules that get processed once at shell start.
 # They shouldn't generate output.
-EXTRA=(jimshoe ec2 ssh-add localbin completions lesscolors lscolors ll coloncolon longcmd safe-paste tmux history alwaystmux cdtmp dotfiles docker)
+EXTRA=(dotfiles jimshoe ec2 ssh-add localbin completions lesscolors lscolors ll coloncolon longcmd safe-paste tmux history alwaystmux cdtmp docker)
 
 PR_PRIMARY='$PR_BLUE'
 

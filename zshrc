@@ -4,6 +4,9 @@
 [ -d ~/.myzsh/remotes/myzsh-jimshoe ] || git clone https://github.com/itsamenathan/myzsh-jimshoe.git  ~/.myzsh/remotes/myzsh-jimshoe
 [ -d ~/dotfiles ] || git clone --recursive https://github.com/itsamenathan/dotfiles.git ~/dotfiles
 
+# Set color of zsh and tmux 
+export COLOR="BLUE"
+
 # This is the base of the new zsh directory
 MYZSH="$HOME/.myzsh"
 
@@ -32,7 +35,7 @@ TITLE=(pwd)
 # They shouldn't generate output.
 EXTRA=(dotfiles jimshoe ec2 ssh-add localbin completions lesscolors lscolors ll coloncolon longcmd safe-paste tmux history alwaystmux cdtmp docker)
 
-PR_PRIMARY='$PR_BLUE'
+PR_PRIMARY="\$PR_$COLOR"
 
 ################################################################################
 # This kicks off our processing now that we have variables

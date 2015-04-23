@@ -12,6 +12,7 @@ let blacklists = ["https://mail.google.com/*", "https://frcv.net/ttrss/*"]
 map R reloadTabUncached
 map d closeTab
 map u lastClosedTab
+map U :restore<Space>
 map H goBack
 map L goForward
 map J previousTab

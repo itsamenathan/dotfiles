@@ -2,7 +2,7 @@
  if !1 | finish | endif
 
 if !isdirectory($HOME.'/.vim/bundle/neobundle')
-  call system('git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim')
+  call system('git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle')
 endif
 
  if has('vim_starting')
@@ -11,7 +11,7 @@ endif
    endif
 
    " Required:
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
+   set runtimepath+=~/.vim/bundle/neobundle/
  endif
 
  " Required:
@@ -27,6 +27,7 @@ endif
  NeoBundle 'https://github.com/airblade/vim-gitgutter.git', { 'directory': 'gitgutter' }
  NeoBundle 'https://github.com/sjl/gundo.vim.git', { 'directory': 'gundo' }
  NeoBundle 'https://github.com/Shougo/neobundle.vim.git', { 'directory': 'neobundle' }
+ NeoBundle 'https://github.com/scrooloose/nerdtree.git', { 'directory': 'nerdtree' }
  NeoBundle 'https://github.com/garbas/vim-snipmate.git', { 'directory': 'snipmate' }
  NeoBundle 'https://github.com/honza/vim-snippets.git', { 'directory': 'snippets' }
  NeoBundle 'https://github.com/ervandew/supertab.git', { 'directory': 'supertab' }

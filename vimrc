@@ -28,6 +28,7 @@ endif
  NeoBundle 'https://github.com/sjl/gundo.vim.git', { 'directory': 'gundo' }
  NeoBundle 'https://github.com/Shougo/neobundle.vim.git', { 'directory': 'neobundle' }
  NeoBundle 'https://github.com/scrooloose/nerdtree.git', { 'directory': 'nerdtree' }
+ NeoBundle 'https://github.com/saltstack/salt-vim.git', { 'directory': 'salt-vim' }
  NeoBundle 'https://github.com/garbas/vim-snipmate.git', { 'directory': 'snipmate' }
  NeoBundle 'https://github.com/honza/vim-snippets.git', { 'directory': 'snippets' }
  NeoBundle 'https://github.com/ervandew/supertab.git', { 'directory': 'supertab' }

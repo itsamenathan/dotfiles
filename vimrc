@@ -5,52 +5,60 @@ if !isdirectory($HOME.'/.vim/bundle/neobundle')
   call system('git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle')
 endif
 
- if has('vim_starting')
-   if &compatible
-     set nocompatible               " Be iMproved
-   endif
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
-   " Required:
-   set runtimepath+=~/.vim/bundle/neobundle/
- endif
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle/
+endif
 
- " Required:
- call neobundle#begin(expand('~/.vim/bundle/'))
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
- " Let NeoBundle manage NeoBundle
- " Required:
- NeoBundle 'https://github.com/bling/vim-airline.git', { 'directory': 'airline' }
- let g:airline_powerline_fonts = 1
- let g:airline_theme='murmur'
- NeoBundle 'https://github.com/ntpeters/vim-better-whitespace.git', { 'directory': 'better-whitespace' }
- NeoBundle 'https://github.com/tpope/vim-fugitive.git', { 'directory': 'fugitive' }
- NeoBundle 'https://github.com/airblade/vim-gitgutter.git', { 'directory': 'gitgutter' }
- NeoBundle 'https://github.com/sjl/gundo.vim.git', { 'directory': 'gundo' }
- NeoBundle 'https://github.com/Shougo/neobundle.vim.git', { 'directory': 'neobundle' }
- NeoBundle 'https://github.com/scrooloose/nerdtree.git', { 'directory': 'nerdtree' }
- NeoBundle 'https://github.com/saltstack/salt-vim.git', { 'directory': 'salt-vim' }
- NeoBundle 'https://github.com/garbas/vim-snipmate.git', { 'directory': 'snipmate' }
- NeoBundle 'https://github.com/honza/vim-snippets.git', { 'directory': 'snippets' }
- NeoBundle 'https://github.com/ervandew/supertab.git', { 'directory': 'supertab' }
- NeoBundle 'https://github.com/scrooloose/syntastic.git', { 'directory': 'syntastic' }
- NeoBundle 'https://github.com/tomtom/tlib_vim.git', { 'directory': 'tlib' }
- NeoBundle 'https://github.com/MarcWeber/vim-addon-mw-utils.git', { 'directory': 'vim-addon-mw-utils' }
- NeoBundle 'https://github.com/vimwiki/vimwiki.git', { 'directory': 'vimwiki' }
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundle 'https://github.com/bling/vim-airline.git', { 'directory': 'airline' }
+let g:airline_powerline_fonts = 1
+let g:airline_theme='bubblegum'
+set laststatus=2
+let g:airline#extensions#branch#displayed_head_limit = 10
+NeoBundle 'https://github.com/ntpeters/vim-better-whitespace.git', { 'directory': 'better-whitespace' }
+NeoBundle 'https://github.com/tpope/vim-fugitive.git', { 'directory': 'fugitive' }
+NeoBundle 'https://github.com/airblade/vim-gitgutter.git', { 'directory': 'gitgutter' }
+NeoBundle 'https://github.com/sjl/gundo.vim.git', { 'directory': 'gundo' }
+NeoBundle 'https://github.com/Shougo/neobundle.vim.git', { 'directory': 'neobundle' }
+NeoBundle 'https://github.com/scrooloose/nerdtree.git', { 'directory': 'nerdtree' }
+NeoBundle 'https://github.com/Xuyuanp/nerdtree-git-plugin.git', { 'directory': 'nerdtree-git' }
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+map <C-n> :NERDTreeToggle<CR>
+NeoBundle 'https://github.com/saltstack/salt-vim.git', { 'directory': 'salt-vim' }
+NeoBundle 'https://github.com/garbas/vim-snipmate.git', { 'directory': 'snipmate' }
+NeoBundle 'https://github.com/honza/vim-snippets.git', { 'directory': 'snippets' }
+NeoBundle 'https://github.com/ervandew/supertab.git', { 'directory': 'supertab' }
+NeoBundle 'https://github.com/scrooloose/syntastic.git', { 'directory': 'syntastic' }
+NeoBundle 'https://github.com/tomtom/tlib_vim.git', { 'directory': 'tlib' }
+NeoBundle 'https://github.com/MarcWeber/vim-addon-mw-utils.git', { 'directory': 'vim-addon-mw-utils' }
+NeoBundle 'https://github.com/vimwiki/vimwiki.git', { 'directory': 'vimwiki' }
+NeoBundle 'https://github.com/kien/ctrlp.vim.git', { 'directory': 'ctrlp' }
+NeoBundle 'https://github.com/qpkorr/vim-bufkill', { 'directory': 'bufkill' }
+NeoBundle 'https://github.com/rking/ag.vim.git', { 'directory': 'ag' }
 
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 
+call neobundle#end()
 
- " My Bundles here:
- " Refer to |:NeoBundle-examples|.
- " Note: You don't set neobundle setting in .gvimrc!
+" Required:
+filetype plugin indent on
 
- call neobundle#end()
-
- " Required:
- filetype plugin indent on
-
- " If there are uninstalled bundles found on startup,
- " this will conveniently prompt you to install them.
- NeoBundleCheck
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 
 
@@ -80,9 +88,13 @@ set sw=2
              " Ignores case when searching
 set ic
 
+             " Set where splits open
+set splitright
+set splitbelow
+
              " set status line
-set statusline=%<%f\ %h%m%r%=%-20.(line=%l,col=%c%V,totlin=%L%)
-set laststatus=2
+"set statusline=%<%f\ %h%m%r%=%-20.(line=%l,col=%c%V,totlin=%L%)
+"set laststatus=2
 
              " highlit search
 set hlsearch
@@ -138,3 +150,5 @@ function! Filetype_pde()
   map <F7> :!make <RETURN>
   map <F8> :!make upload <RETURN>
 endfunction
+
+let mapleader=" "

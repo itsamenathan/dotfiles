@@ -5,7 +5,7 @@
 [ -d ~/dotfiles ] || git clone --recursive https://github.com/itsamenathan/dotfiles.git ~/dotfiles
 
 # Set color of zsh and tmux 
-export COLOR="BLUE"
+export COLOR="PURPLE"
 
 # This is the base of the new zsh directory
 MYZSH="$HOME/.myzsh"

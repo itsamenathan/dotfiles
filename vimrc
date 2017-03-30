@@ -10,10 +10,6 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 Plug 'https://github.com/vim-airline/vim-airline.git'
-let g:airline_powerline_fonts = 1
-let g:airline_theme='bubblegum'
-set laststatus=2
-let g:airline#extensions#branch#displayed_head_limit = 10
 Plug 'https://github.com/ntpeters/vim-better-whitespace.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
@@ -21,7 +17,26 @@ Plug 'https://github.com/sjl/gundo.vim.git'
 Plug 'https://github.com/ervandew/supertab.git'
 Plug 'https://github.com/scrooloose/syntastic.git'
 Plug 'https://github.com/kien/ctrlp.vim.git'
+Plug 'https://github.com/scrooloose/nerdtree.git'
+Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 call plug#end()
+
+             " Airline Options
+let g:airline_powerline_fonts = 1
+let g:airline_theme='bubblegum'
+set laststatus=2
+let g:airline#extensions#branch#displayed_head_limit = 10
+
+             " NERDTree options
+function! ToggleNERDTree()
+  if exists("b:NERDTree")
+    NERDTreeToggle
+  else
+    NERDTreeFocus
+  endif
+endfunction
+map <C-n> :call ToggleNERDTree()<cr>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
              " Persistent undo
 if !isdirectory($HOME.'/.vim/undodir')
@@ -99,3 +114,5 @@ function! Filetype_pde()
 endfunction
 
 imap jk <Esc>
+
+set backspace=indent,eol,start

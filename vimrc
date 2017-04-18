@@ -3,7 +3,7 @@ if !1 | finish | endif
 
              " Install Plug
              " https://github.com/junegunn/vim-plug
-if empty($HOME.'/.vim/autoload/plug.vim')
+if !isdirectory($HOME.'/.vim/autoload/plug.vim')
   call system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
 endif
 

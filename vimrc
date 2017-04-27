@@ -116,3 +116,9 @@ endfunction
 imap jk <Esc>
 
 set backspace=indent,eol,start
+
+set cursorline
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=235
+

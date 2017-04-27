@@ -5,7 +5,7 @@
 [ -d ~/dotfiles ] || git clone --recursive https://github.com/itsamenathan/dotfiles.git ~/dotfiles
 
 # Set color of zsh and tmux 
-export COLOR="GREEN"
+export COLOR="CYAN"
 
 # This is the base of the new zsh directory
 MYZSH="$HOME/.myzsh"
@@ -32,7 +32,7 @@ TITLE=(pwd)
 
 # This is the list of modules that get processed once at shell start.
 # They shouldn't generate output.
-EXTRA=(dotfiles jimshoe ssh-add localbin completions lesscolors lscolors ll coloncolon longcmd safe-paste tmux history alwaystmux cdtmp docker grepcolors realpath)
+EXTRA=(jimshoe ssh-add localbin completions lesscolors lscolors ll coloncolon longcmd safe-paste tmux history alwaystmux docker grepcolors realpath)
 
 PR_PRIMARY="\$PR_$COLOR"
 

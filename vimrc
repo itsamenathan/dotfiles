@@ -16,9 +16,12 @@ Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/sjl/gundo.vim.git'
 Plug 'https://github.com/ervandew/supertab.git'
 Plug 'https://github.com/scrooloose/syntastic.git'
-Plug 'https://github.com/kien/ctrlp.vim.git'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
+Plug 'https://github.com/hashivim/vim-terraform.git'
+Plug 'https://github.com/will133/vim-dirdiff.git'
+Plug 'https://github.com/mhinz/vim-grepper.git'
 call plug#end()
 
              " Airline Options
@@ -42,14 +45,21 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 if !isdirectory($HOME.'/.vim/undodir')
   call mkdir($HOME."/.vim/undodir", "p")
 endif
-set undodir=~/.vim/undodir
+set undodir=$HOME/.vim/undodir
 set undofile
 set undolevels=1000
 set undoreload=10000
 
+if !isdirectory($HOME.'/.vim/swp')
+  call mkdir($HOME."/.vim/swp", "p")
+endif
+set directory^=$HOME/.vim/swp//
+
+
              " syntax highlighting
 syntax on
 set background=dark
+let g:syntastic_python_checkers = ['python3']
 
              " figure out file type
 filetype plugin indent on
@@ -83,6 +93,7 @@ map <c-h> <home>
 map <c-j> <pagedown>
 map <c-k> <pageup>
 map <c-l> <end>
+map <c-o> :set invpaste!<CR>
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
 
@@ -117,7 +128,7 @@ imap jk <Esc>
 
 set backspace=indent,eol,start
 
-set cursorline
+"set cursorline
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=235

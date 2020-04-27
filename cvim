@@ -2,11 +2,16 @@ set nosmoothscroll
 set autoupdategist
 set autohidecursor
 set noautofocus
+let autoupdategist = "true"
 
 let hintcharacters = "asdfghjkl"
+let blacklists = ["https://mail.google.com/*", "https://rss.frcv.net/*", "https://hass.home.frcv.net/*", "https://*.console.aws.amazon.com/*"]
+
+let completionengines = ['google', 'amazon', 'youtube', 'wikipedia']
 let searchalias g = "google"
 let searchalias a = "amazon"
-let blacklists = ["https://mail.google.com/*", "https://frcv.net/ttrss/*"]
+let searchalias y = "youtube"
+let searchalias w = "wikipedia"
 
 " Mappings
 map R reloadTabUncached
@@ -17,3 +22,5 @@ map H goBack
 map L goForward
 map J previousTab
 map K nextTab
+map f createActiveTabbedHint
+map F createHint

@@ -22,6 +22,9 @@ Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 Plug 'https://github.com/hashivim/vim-terraform.git'
 Plug 'https://github.com/will133/vim-dirdiff.git'
 Plug 'https://github.com/mhinz/vim-grepper.git'
+Plug 'https://github.com/plasticboy/vim-markdown.git'
+Plug 'https://github.com/ryanoasis/vim-devicons.git'
+Plug 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git'
 call plug#end()
 
              " Airline Options
@@ -40,6 +43,9 @@ function! ToggleNERDTree()
 endfunction
 map <C-n> :call ToggleNERDTree()<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+             " vim-markdown options
+let g:vim_markdown_folding_disabled = 1
 
              " Persistent undo
 if !isdirectory($HOME.'/.vim/undodir')

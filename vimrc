@@ -34,6 +34,7 @@ set laststatus=2
 let g:airline#extensions#branch#displayed_head_limit = 10
 
              " NERDTree options
+let NERDTreeShowHidden=1
 function! ToggleNERDTree()
   if exists("b:NERDTree")
     NERDTreeToggle

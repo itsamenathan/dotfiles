@@ -39,3 +39,5 @@ PR_PRIMARY="\$PR_$COLOR"
 ################################################################################
 # This kicks off our processing now that we have variables
 source "$MYZSH/init"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

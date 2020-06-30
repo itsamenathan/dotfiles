@@ -4,7 +4,7 @@
 [ -d ~/.myzsh/remotes/myzsh-jimshoe ] || git clone https://github.com/itsamenathan/myzsh-jimshoe.git  ~/.myzsh/remotes/myzsh-jimshoe
 [ -d ~/dotfiles ] || git clone --recursive https://github.com/itsamenathan/dotfiles.git ~/dotfiles
 
-# Set color of zsh and tmux 
+# Set color of zsh and tmux
 export COLOR="CYAN"
 
 # This is the base of the new zsh directory
@@ -16,7 +16,7 @@ MYZSH="$HOME/.myzsh"
 THEME="default"
 
 # This is the list of modules that generate Left Primary output.
-LPRIMARY=(userhost pwd svn git jobs vim)
+LPRIMARY=(pwd svn git jobs vim terraform-workspace)
 
 # This is the list of modules that generate Left Secondary output.
 LSECONDARY=(gettime exitcode)

@@ -1,3 +1,3 @@
-[submodule "bashter"]
+[submodule ".bashter"]
 	path = .bashter
-	url = https://github.com/itsamenathan/bashter
+	url = https://github.com/itsamenathan/bashter.git

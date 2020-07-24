@@ -1,8 +1,53 @@
-             " Skip initialization for vim-tiny or vim-small.
+" Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
-             " Install Plug
-             " https://github.com/junegunn/vim-plug
+"+----------+
+"| SETTINGS |
+"+----------+
+
+set background=dark            " Use colors that look good on a dark background
+set backspace=indent,eol,start " Allow backspacing over anything in insert mode
+set colorcolumn=80             " Color column
+set expandtab                  " Use spaces when tab is inserted
+set hlsearch                   " Highlight search pattern
+set ignorecase                 " Case insensitive searching
+set noshowmode                 " Hide mode infomation on the last line
+set pastetoggle=<c-o>          " Toggle paste mode
+set splitbelow                 " New window from split is below the current one
+set splitright                 " New window is put right of the current one
+set smartcase                  " CAse sensitive searching if using uppercase
+filetype plugin indent on      " Enable file type detection
+syntax on                      " Turn on syntax highlighting
+highlight ColorColumn ctermbg=235
+
+" Change cursor shape in different modes
+let &t_EI = "\033[2 q" " NORMAL  █
+let &t_SI = "\033[5 q" " INSERT  |
+let &t_SR = "\033[3 q" " REPLACE _
+
+" save with sudo access
+cmap w!! w !sudo tee % >/dev/null
+
+" Persistent undo
+if !isdirectory($HOME.'/.vim/undodir')
+  call mkdir($HOME."/.vim/undodir", "p")
+endif
+set undodir=$HOME/.vim/undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+" Common Swap directory
+if !isdirectory($HOME.'/.vim/swp')
+  call mkdir($HOME."/.vim/swp", "p")
+endif
+set directory^=$HOME/.vim/swp//
+
+"+---------+
+"| PLUGINS |
+"+---------+
+
+" https://github.com/junegunn/vim-plug
 if !isdirectory($HOME.'/.vim/autoload/plug.vim')
   call system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
 endif
@@ -27,13 +72,25 @@ Plug 'https://github.com/ryanoasis/vim-devicons.git'
 Plug 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git'
 call plug#end()
 
-             " Airline Options
+"+----------------+
+"| PLUGINS CONFIG |
+"+----------------+
+
+" Airline Options
 let g:airline_powerline_fonts = 1
 let g:airline_theme='bubblegum'
 set laststatus=2
 let g:airline#extensions#branch#displayed_head_limit = 10
 
-             " NERDTree options
+"" GitGutter Options
+autocmd BufWritePost * GitGutter
+highlight clear SignColumn
+highlight GitGutterAdd          ctermfg=Green
+highlight GitGutterChange       ctermfg=Yellow
+highlight GitGutterDelete       ctermfg=Red
+highlight GitGutterChangeDelete ctermfg=Blue
+
+" NERDTree options
 let NERDTreeShowHidden=1
 function! ToggleNERDTree()
   if exists("b:NERDTree")
@@ -45,67 +102,25 @@ endfunction
 map <C-n> :call ToggleNERDTree()<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-             " vim-markdown options
-let g:vim_markdown_folding_disabled = 1
-
-             " Persistent undo
-if !isdirectory($HOME.'/.vim/undodir')
-  call mkdir($HOME."/.vim/undodir", "p")
-endif
-set undodir=$HOME/.vim/undodir
-set undofile
-set undolevels=1000
-set undoreload=10000
-
-if !isdirectory($HOME.'/.vim/swp')
-  call mkdir($HOME."/.vim/swp", "p")
-endif
-set directory^=$HOME/.vim/swp//
-
-
-             " syntax highlighting
-syntax on
-set background=dark
+" Syntastic Options
 let g:syntastic_python_checkers = ['python3']
 
-             " figure out file type
-filetype plugin indent on
+" vim-markdown Options
+let g:vim_markdown_folding_disabled = 1
 
-             " indent stuff
-set smarttab
-set autoindent
-             " expand tabs to spaces
-set et
-             " shift width
-set sw=2
+"+-------------+
+"| KEY MAPPING |
+"+-------------+
 
-             " Ignores case when searching
-set ic
-
-             " Set where splits open
-set splitright
-set splitbelow
-
-             " highlit search
-set hlsearch
-
-  " Format JSON
-com! FormatJSON %!python -m json.tool
-
-" save with sudo access
-cmap w!! w !sudo tee % >/dev/null
-
-            " map a few thing
-map <c-h> <home>
-map <c-j> <pagedown>
-map <c-k> <pageup>
-map <c-l> <end>
-map <c-o> :set invpaste!<CR>
+imap jk <Esc>
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
 
+"+---------------+
+"+ FILE MAPPINGS |
+"+---------------+
 
-  " sets filetypes for file extensions
+" sets filetypes for file extensions
 au BufNewFile,BufRead *.txt call Filetype_txt()
 au BufNewFile,BufRead *.wiki call Filetype_txt()
 au BufNewFile,BufRead *.tex call Filetype_txt()
@@ -124,19 +139,3 @@ function! Filetype_txt()
   map <c-b> i<C-X>s
   imap <c-b> <C-X>s
 endfunction
-
-function! Filetype_pde()
-  setf arduino
-  map <F7> :!make <RETURN>
-  map <F8> :!make upload <RETURN>
-endfunction
-
-imap jk <Esc>
-
-set backspace=indent,eol,start
-
-"set cursorline
-
-set colorcolumn=80
-highlight ColorColumn ctermbg=235
-

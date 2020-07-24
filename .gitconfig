@@ -11,3 +11,5 @@
 	st = status
 	last = log -1 HEAD
 	squash = reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
+[pull]
+	rebase = false

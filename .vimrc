@@ -70,6 +70,7 @@ Plug 'https://github.com/mhinz/vim-grepper.git'
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'https://github.com/ryanoasis/vim-devicons.git'
 Plug 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git'
+Plug 'https://github.com/vim-scripts/vim-auto-save.git'
 call plug#end()
 
 "+----------------+
@@ -107,6 +108,10 @@ let g:syntastic_python_checkers = ['python3']
 
 " vim-markdown Options
 let g:vim_markdown_folding_disabled = 1
+
+" vim-autosave Options
+let g:auto_save = 1 " enable AutoSave on Vim startup
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 
 "+-------------+
 "| KEY MAPPING |

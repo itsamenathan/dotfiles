@@ -1,3 +1,6 @@
 [submodule ".bashter"]
 	path = .bashter
 	url = https://github.com/itsamenathan/bashter.git
+[submodule ".tmux/plugins/tpm"]
+	path = .tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git

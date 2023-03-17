@@ -53,24 +53,27 @@ if !isdirectory($HOME.'/.vim/autoload/plug.vim')
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/vim-airline/vim-airline-themes.git'
-Plug 'https://github.com/vim-airline/vim-airline.git'
-Plug 'https://github.com/ntpeters/vim-better-whitespace.git'
-Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/airblade/vim-gitgutter.git'
-Plug 'https://github.com/sjl/gundo.vim.git'
-Plug 'https://github.com/ervandew/supertab.git'
-Plug 'https://github.com/scrooloose/syntastic.git'
-Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
-Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
+Plug 'https://github.com/airblade/vim-gitgutter.git'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
+Plug 'https://github.com/ervandew/supertab.git'
+Plug 'https://github.com/hashivim/vim-packer.git'
 Plug 'https://github.com/hashivim/vim-terraform.git'
-Plug 'https://github.com/will133/vim-dirdiff.git'
+Plug 'https://github.com/jvirtanen/vim-hcl.git'
 Plug 'https://github.com/mhinz/vim-grepper.git'
+Plug 'https://github.com/ntpeters/vim-better-whitespace.git'
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'https://github.com/ryanoasis/vim-devicons.git'
+Plug 'https://github.com/scrooloose/nerdtree.git'
+Plug 'https://github.com/scrooloose/syntastic.git'
+Plug 'https://github.com/simeji/winresizer.git'
+Plug 'https://github.com/sjl/gundo.vim.git'
 Plug 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/vim-airline/vim-airline-themes.git'
+Plug 'https://github.com/vim-airline/vim-airline.git'
 Plug 'https://github.com/vim-scripts/vim-auto-save.git'
+Plug 'https://github.com/will133/vim-dirdiff.git'
 call plug#end()
 
 "+----------------+
@@ -141,6 +144,6 @@ let g:SuperTabDefaultCompletionType = "context"
 " text file spacific stuff
 function! Filetype_txt()
   set spell spelllang=en_us
-  map <c-b> i<C-X>s
-  imap <c-b> <C-X>s
+  map <c-i> i<C-X>s
+  imap <c-i> <C-X>s
 endfunction

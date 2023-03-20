@@ -26,6 +26,7 @@ antidote bundle <<EOBUNDLES
   ohmyzsh/ohmyzsh path:plugins/fzf
   ohmyzsh/ohmyzsh path:plugins/git
   ohmyzsh/ohmyzsh path:plugins/ssh-agent
+  ohmyzsh/ohmyzsh path:plugins/brew
 
   zpm-zsh/ls kind:defer
   zpm-zsh/material-colors

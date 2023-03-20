@@ -1,41 +1,43 @@
-[ -d ~/.myzsh ] || git clone https://github.com/myzsh/myzsh.git ~/.myzsh
-[ -d ~/.myzsh/remotes/myzsh-docker ] || git clone https://github.com/myzsh/myzsh-docker.git  ~/.myzsh/remotes/myzsh-docker
-[ -d ~/.myzsh/remotes/myzsh-jimshoe ] || git clone https://github.com/itsamenathan/myzsh-jimshoe.git  ~/.myzsh/remotes/myzsh-jimshoe
+# antidote install
+[[ -e ${ZDOTDIR:-~}/.antidote ]] ||
+  git clone https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 
-# Set color of zsh and tmux
+# Tell tmux what color to use
 export COLOR="CYAN"
 
-# This is the base of the new zsh directory
-MYZSH="$HOME/.myzsh"
+source ~/.p10k.zsh
 
-# Specify a tmp directory to use across all modules
+zstyle ':completion:*' menu select
+zstyle ':antidote:bundle' use-friendly-names 'yes'
+zstyle ':omz:plugins:ssh-agent' agent-forwarding yes
 
-# This is the theme.
-THEME="default"
+# antidote setup
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+source <(antidote init)
 
-# This is the list of modules that generate Left Primary output.
-LPRIMARY=(pwd svn git jobs vim terraform-workspace)
+# antidote plugins
+antidote bundle <<EOBUNDLES
+  romkatv/powerlevel10k
 
-# This is the list of modules that generate Left Secondary output.
-LSECONDARY=(gettime exitcode)
+  sorin-ionescu/prezto path:modules/completion
+  zsh-users/zsh-autosuggestions
 
-# This is the list of modules that generate Right Primary output.
-RPRIMARY=(ipaddr)
+  ohmyzsh/ohmyzsh path:plugins/history
+  ohmyzsh/ohmyzsh path:plugins/fzf
+  ohmyzsh/ohmyzsh path:plugins/git
+  ohmyzsh/ohmyzsh path:plugins/ssh-agent
 
-# This is the list of modules that generate Right Secondary output.
-RSECONDARY=(getdate)
+  zpm-zsh/ls kind:defer
+  zpm-zsh/material-colors
 
-# This is the title of the terminal
-TITLE=(pwd)
 
-# This is the list of modules that get processed once at shell start.
-# They shouldn't generate output.
-EXTRA=(jimshoe ssh-add localbin completions lesscolors lscolors ll coloncolon longcmd safe-paste tmux history alwaystmux docker grepcolors realpath)
+  $HOME/.zsh_conf/plugins/alias
+  $HOME/.zsh_conf/plugins/hosts
+  $HOME/.zsh_conf/plugins/coloncolon
 
-PR_PRIMARY="\$PR_$COLOR"
+  # defer
+  $HOME/.zsh_conf/plugins/alwaystmux kind:defer
+  zdharma-continuum/fast-syntax-highlighting kind:defer
 
-################################################################################
-# This kicks off our processing now that we have variables
-source "$MYZSH/init"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+EOBUNDLES

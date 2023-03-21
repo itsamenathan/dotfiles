@@ -22,7 +22,7 @@ antidote bundle <<EOBUNDLES
   sorin-ionescu/prezto path:modules/completion
   zsh-users/zsh-autosuggestions
 
-  ohmyzsh/ohmyzsh path:plugins/history
+  ohmyzsh/ohmyzsh path:lib
   ohmyzsh/ohmyzsh path:plugins/fzf
   ohmyzsh/ohmyzsh path:plugins/git
   ohmyzsh/ohmyzsh path:plugins/ssh-agent

@@ -1,11 +1,10 @@
+#eval "$(oh-my-posh init zsh --config ~/.ohmyposh.yaml)"
 # antidote install
 [[ -e ${ZDOTDIR:-~}/.antidote ]] ||
   git clone https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 
 # Tell tmux what color to use
 export COLOR="CYAN"
-
-source ~/.p10k.zsh
 
 zstyle ':completion:*' menu select
 zstyle ':antidote:bundle' use-friendly-names 'yes'
@@ -17,20 +16,22 @@ source <(antidote init)
 
 # antidote plugins
 antidote bundle <<EOBUNDLES
-  romkatv/powerlevel10k
-
   sorin-ionescu/prezto path:modules/completion
   zsh-users/zsh-autosuggestions
 
-  ohmyzsh/ohmyzsh path:lib
-  ohmyzsh/ohmyzsh path:plugins/fzf
-  ohmyzsh/ohmyzsh path:plugins/git
-  ohmyzsh/ohmyzsh path:plugins/ssh-agent
+  ohmyzsh/ohmyzsh path:lib/history.zsh
+  ohmyzsh/ohmyzsh path:plugins/asdf
   ohmyzsh/ohmyzsh path:plugins/brew
   ohmyzsh/ohmyzsh path:plugins/common-aliases
+  ohmyzsh/ohmyzsh path:plugins/fzf
+  ohmyzsh/ohmyzsh path:plugins/git
+  ohmyzsh/ohmyzsh path:plugins/kubectl
+  ohmyzsh/ohmyzsh path:plugins/ssh-agent
 
   zpm-zsh/ls kind:defer
-  zpm-zsh/material-colors
+  zpm-zsh/dircolors-neutral
+
+  ptavares/zsh-direnv
 
 
   $HOME/.zsh_conf/plugins/alias
@@ -43,3 +44,7 @@ antidote bundle <<EOBUNDLES
 
 
 EOBUNDLES
+
+unsetopt share_history
+
+eval "$(oh-my-posh init zsh --config ~/.ohmyposh.yaml)"

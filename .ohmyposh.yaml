@@ -1,0 +1,156 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+console_title_template: "{{.HostName}} -- {{.PWD}}"
+final_space: true
+version: 2
+
+blocks:
+- type: prompt
+  newline: true
+  alignment: left
+  segments:
+
+  - type: os
+    background: "#d3d7cf"
+    foreground: "#000000"
+    leading_diamond: "╭─"
+    style: diamond
+    template: " {{ if .WSL }}WSL at {{ end }}{{.Icon}} "
+
+  - type: session
+    foreground: "#ffffff"
+    background: "#c386f1"
+    powerline_symbol: ""
+    style: powerline
+    template: "{{ if .SSHSession }} {{ .HostName }}{{ end }}"
+
+  - type: path
+    background: "#3465a4"
+    foreground: "#e4e4e4"
+    powerline_symbol: ""
+    properties:
+      home_icon: "~"
+      style: full
+    style: powerline
+    template: "  {{ .Path }} "
+
+  - type: git
+    background: "#4e9a06"
+    background_templates:
+    - "{{ if or (.Working.Changed) (.Staging.Changed) }}#c4a000{{ end }}"
+    - "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#f26d50{{ end }}"
+    - "{{ if gt .Ahead 0 }}#89d1dc{{ end }}"
+    - "{{ if gt .Behind 0 }}#4e9a06{{ end }}"
+    foreground: "#000000"
+    powerline_symbol: ""
+    properties:
+      branch_icon: " "
+      fetch_stash_count: true
+      fetch_status: true
+      fetch_upstream_icon: true
+    style: powerline
+    template: " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus
+      }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and
+      (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}
+       {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{
+      end }} "
+
+- type: prompt
+  alignment: right
+  segments:
+
+  - type: node
+    background: "#689f63"
+    foreground: "#ffffff"
+    invert_powerline: true
+    powerline_symbol: ""
+    properties:
+      fetch_version: true
+    style: powerline
+    template: " {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{
+      .Full }}  "
+
+#  - type: kubectl
+#    background: "#00acd7"
+#    foreground: "#111111"
+#    invert_powerline: true
+#    powerline_symbol: ""
+#    style: powerline
+#    template: "{{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
+
+  - type: python
+    background: "#FFDE57"
+    foreground: "#111111"
+    invert_powerline: true
+    powerline_symbol: ""
+    properties:
+      display_mode: files
+      fetch_virtual_env: false
+    style: powerline
+    template: " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}  "
+
+  - type: aws
+    background_templates:
+    - '{{if contains "default" .Profile}}#FFA400{{end}}'
+    - '{{if contains "jan" .Profile}}#f1184c{{end}}'
+    foreground: "#ffffff"
+    invert_powerline: true
+    powerline_symbol: ""
+    properties:
+      display_default: false
+    style: powerline
+    template: " {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }}  "
+
+  - type: root
+    background: "#ffff66"
+    foreground: "#111111"
+    invert_powerline: true
+    powerline_symbol: ""
+    style: powerline
+    template: "  "
+
+  - type: executiontime
+    background: "#c4a000"
+    foreground: "#000000"
+    invert_powerline: true
+    powerline_symbol: ""
+    style: powerline
+    template: " {{ .FormattedMs }}  "
+
+  - type: time
+    background: "#d3d7cf"
+    foreground: "#000000"
+    invert_powerline: true
+    style: diamond
+    template: " {{ .CurrentDate | date .Format }}  "
+    leading_diamond: ""
+    trailing_diamond: "─╮"
+
+- type: prompt
+  alignment: left
+  newline: true
+  segments:
+
+  - type: text
+    foreground: "#d3d7cf"
+    style: plain
+    template: "╰─"
+
+  - type: status
+    background: "#000000"
+    background_templates:
+    - "{{ if gt .Code 0 }}#cc2222{{ end }}"
+    foreground: "#d3d7cf"
+    invert_powerline: true
+    properties:
+      always_enabled: true
+    style: powerline
+    template: "{{ if gt .Code 0 }} ✘ {{.Code}} ❯ {{ else }} <#4e9a06>✔</> ❯ {{ end }}"
+
+- type: rprompt
+  segments:
+  - type: text
+    foreground: "#d3d7cf"
+    style: plain
+    template: "─╯"

@@ -31,9 +31,6 @@ antidote bundle <<EOBUNDLES
   zpm-zsh/ls kind:defer
   zpm-zsh/dircolors-neutral
 
-  ptavares/zsh-direnv
-
-
   $HOME/.zsh_conf/plugins/alias
   $HOME/.zsh_conf/plugins/hosts
   $HOME/.zsh_conf/plugins/coloncolon
@@ -47,4 +44,5 @@ EOBUNDLES
 
 unsetopt share_history
 
+[[ ! $(command -v nix) && -e "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh" ]] && source "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
 eval "$(oh-my-posh init zsh --config ~/.ohmyposh.yaml)"

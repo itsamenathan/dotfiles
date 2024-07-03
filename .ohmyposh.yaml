@@ -33,7 +33,7 @@ blocks:
       home_icon: "~"
       style: full
     style: powerline
-    template: "  {{ .Path }} "
+    template: "   {{ .Path }} "
 
   - type: git
     background: "#4e9a06"

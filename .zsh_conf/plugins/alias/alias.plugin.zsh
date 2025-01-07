@@ -11,10 +11,10 @@ if hash apt-get 2>/dev/null; then
 fi
 
 if hash pacman 2>/dev/null; then
-  alias inst="yaourt -S"
-  alias remove="yaourt -R"
-  alias search="yaourt -Ss"
-  alias update="yaourt -Syyua"
+  alias inst="yay -S"
+  alias remove="yay -R"
+  alias search="yay -Ss"
+  alias update="yay -Syyua"
 fi
 
 if hash brew 2>/dev/null; then

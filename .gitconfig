@@ -13,3 +13,6 @@
 	squash = reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
 [pull]
 	rebase = false
+
+[includeIf "gitdir:~/gitlab/"]
+    path = ~/gitlab/.gitconfig

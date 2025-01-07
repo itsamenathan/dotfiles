@@ -127,7 +127,6 @@ blocks:
       cache_duration: none
     template: "{{ if gt .Code 0 }} ✘ {{.Code}} ❯ {{ else }} <#4e9a06>✔</> ❯ {{ end }}"
     foreground: "#d3d7cf"
-    background: "#000000"
     type: status
     style: powerline
     background_templates:

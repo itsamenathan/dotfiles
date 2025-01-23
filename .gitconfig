@@ -2,6 +2,7 @@
 	textconv = sops -d
 [user]
 	name = Nathan Warner
+        email = nathan@frcv.net
 [push]
 	default = current
 [alias]

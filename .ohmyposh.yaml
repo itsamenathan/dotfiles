@@ -78,12 +78,10 @@ blocks:
       display_default: false
     template: " {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} \ue7ad "
     foreground: "#ffffff"
+    background: "#FFA400"
     powerline_symbol: 
     type: aws
     style: powerline
-    background_templates:
-    - "{{if contains \"default\" .Profile}}#FFA400{{end}}"
-    - "{{if contains \"jan\" .Profile}}#f1184c{{end}}"
     invert_powerline: true
   - properties:
       cache_duration: none

@@ -1,10 +1,8 @@
 #eval "$(oh-my-posh init zsh --config ~/.ohmyposh.yaml)"
 # antidote install
+
 [[ -e ${ZDOTDIR:-~}/.antidote ]] ||
   git clone https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
-
-# Tell tmux what color to use
-export COLOR="CYAN"
 
 zstyle ':completion:*' menu select
 zstyle ':antidote:bundle' use-friendly-names 'yes'

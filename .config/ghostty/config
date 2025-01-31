@@ -1,3 +1,5 @@
 theme = Dracula
 font-size = 11
 window-save-state = always
+clipboard-trim-trailing-spaces = true
+copy-on-select = true

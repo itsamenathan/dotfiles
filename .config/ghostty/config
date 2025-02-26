@@ -1,4 +1,4 @@
-theme = GitHub-Dark-High-Contrast
+theme = Dracula
 font-size = 10
 window-save-state = always
 clipboard-trim-trailing-spaces = true

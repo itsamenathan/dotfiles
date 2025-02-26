@@ -1,2 +1,3 @@
 .ssh/*.key
 .zsh_conf/plugins/hosts/*
+.config/resticprofile/*.yaml

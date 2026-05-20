@@ -42,5 +42,6 @@ EOBUNDLES
 
 unsetopt share_history
 
-[[ ! $(command -v nix) && -e "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh" ]] && source "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+export PATH="$HOOME:/bin:$HOME/.local/bin:$PATH"
+
 eval "$(oh-my-posh init zsh --config ~/.ohmyposh.yaml)"

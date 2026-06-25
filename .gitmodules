@@ -4,3 +4,4 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmuxpack/tpack.git
+	branch = main

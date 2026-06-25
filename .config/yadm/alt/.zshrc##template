@@ -1,6 +1,9 @@
-#eval "$(oh-my-posh init zsh --config ~/.ohmyposh.yaml)"
-# antidote install
+#
+# !!!!!!!!!!!!!!!!!!! DON'T EDIT !!!!!!!!!!!!!!!!
+# edit: ~/.config/yadm/alt/.zshrc##template
+#
 
+# antidote install
 [[ -e ${ZDOTDIR:-~}/.antidote ]] ||
   git clone https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 
@@ -38,11 +41,12 @@ antidote bundle <<EOBUNDLES
   $HOME/.zsh_conf/plugins/alwaystmux kind:defer
   zdharma-continuum/fast-syntax-highlighting kind:defer
 
-
 EOBUNDLES
 
-unsetopt share_history
-
 export PATH="$HOOME:/bin:$HOME/.local/bin:$PATH"
+
+{% if yadm.hostname == "endeavour" %}
+  export TMUX_AUTO_START=off
+{% endif %}
 
 eval "$(oh-my-posh init zsh --config ~/.ohmyposh.yaml)"

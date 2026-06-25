@@ -4,6 +4,8 @@ cd "$HOME"
 
 echo "Init submodules"
 yadm submodule update --recursive --init
+yadm submodule update --remote .tmux/plugins/tpm
+git -C "$HOME/.tmux/plugins/tpm" submodule update --recursive --init
 
 echo "Updating the yadm repo origin URL"
 yadm remote set-url origin "git@github.com:itsamenathan/dotfiles.git"

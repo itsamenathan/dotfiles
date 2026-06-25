@@ -14,7 +14,7 @@ if hash pacman 2>/dev/null; then
   alias inst="yay -S"
   alias remove="yay -R"
   alias search="yay -Ss"
-  alias update="yay -Syyua"
+  alias update="yay -Syu"
 fi
 
 if hash brew 2>/dev/null; then

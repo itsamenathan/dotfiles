@@ -18,7 +18,7 @@ antidote bundle <<EOBUNDLES
   zsh-users/zsh-autosuggestions
 
   ohmyzsh/ohmyzsh path:lib/history.zsh
-  ohmyzsh/ohmyzsh path:plugins/asdf
+  ohmyzsh/ohmyzsh path:plugins/mise
   ohmyzsh/ohmyzsh path:plugins/brew
   ohmyzsh/ohmyzsh path:plugins/common-aliases
   ohmyzsh/ohmyzsh path:plugins/fzf
@@ -28,6 +28,7 @@ antidote bundle <<EOBUNDLES
 
   zpm-zsh/ls kind:defer
   zpm-zsh/dircolors-neutral
+  atuinsh/atuin
 
   $HOME/.zsh_conf/plugins/alias
   $HOME/.zsh_conf/plugins/hosts

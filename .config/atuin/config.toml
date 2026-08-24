@@ -49,7 +49,7 @@ sync_frequency = "10m"
 ## which filter mode to use by default
 ## possible values: "global", "host", "session", "session-preload", "directory", "workspace"
 ## consider using search.filters to customize the enablement and order of filter modes
-filter_mode = "host"
+filter_mode = "session-preload"
 
 ## With workspace filtering enabled, Atuin will filter for commands executed
 ## in any directory within a git repository tree (default: false).
@@ -62,7 +62,7 @@ workspaces = true
 ## which filter mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "filter_mode"
 ## leave unspecified to use same mode set in "filter_mode"
-filter_mode_shell_up_key_binding = "directory"
+filter_mode_shell_up_key_binding = "session-preload"
 
 ## which search mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "search_mode"
@@ -244,7 +244,7 @@ enter_accept = true
 # accept_past_line_end = true
 
 # Defaults to false. The left arrow key performs the same functionality as Tab and copies the selected line to the command line to be modified.
-# accept_past_line_start = false
+#accept_past_line_start = false
 
 # Defaults to false. The backspace key performs the same functionality as Tab and copies the selected line to the command line to be modified when at the start of the line.
 # accept_with_backspace = false
@@ -265,11 +265,11 @@ records = true
 
 [daemon]
 ## Enables using the daemon to sync.
-# enabled = false
+enabled = true
 
 ## Automatically start and manage the daemon when needed.
 ## Not compatible with `systemd_socket = true`.
-# autostart = false
+autostart = true
 
 ## How often the daemon should sync in seconds
 # sync_frequency = 300
@@ -319,15 +319,15 @@ records = true
 ## Set to false to disable the popup.
 ## This can also be controlled with the ATUIN_TMUX_POPUP environment variable.
 ## Note: The tmux popup is currently supported in zsh, bash, and fish shells. This currently doesn't work with iTerm native tmux integration.
-# enabled = false
+enabled = true
 
 ## Width of the tmux popup window
 ## Can be a percentage, or integer (e.g. "100" means 100 characters wide)
-# width = "80%"
+width = "80%"
 
 ## Height of the tmux popup window
 ## Can be a percentage, or integer (e.g. "100" means 100 lines tall)
-# height = "60%"
+height = "60%"
 
 [ui]
 ## Columns to display in the interactive search, from left to right.

@@ -5,6 +5,7 @@
         email = nathan@frcv.net
 [push]
 	default = current
+	autoSetupRemote = true
 [alias]
 	co = checkout
 	br = branch
@@ -17,3 +18,9 @@
 
 [includeIf "gitdir:~/gitlab/"]
     path = ~/gitlab/.gitconfig
+[branch]
+	autoSetupMerge = simple
+[credential]
+	helper = osxkeychain
+[lfs]
+	concurrenttransfers = 32

@@ -69,7 +69,7 @@ blocks:
     template: " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} \ue235 "
     foreground: "#111111"
     powerline_symbol: 
-    background: "#FFDE57"
+    background: "#306798"
     type: python
     style: powerline
     invert_powerline: true
@@ -92,6 +92,13 @@ blocks:
     type: root
     style: powerline
     invert_powerline: true
+  - type: kubectl
+    style: powerline
+    powerline_symbol: 
+    invert_powerline: true
+    foreground: "#111111"
+    background: "#2b61e2"
+    template: "{{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} \uF1D1 "
   - properties:
       cache_duration: none
     template: " {{ .FormattedMs }} \uf252 "

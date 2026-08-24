@@ -7,41 +7,23 @@
 [[ -e ${ZDOTDIR:-~}/.antidote ]] ||
   git clone https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/Library/Caches}/oh-my-zsh"
+mkdir -p "$ZSH_CACHE_DIR/completions"
 zstyle ':completion:*' menu select
 zstyle ':antidote:bundle' use-friendly-names 'yes'
 zstyle ':omz:plugins:ssh-agent' agent-forwarding yes
 
 # antidote setup
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
-source <(antidote init)
+
+# drop fpath entries that don't exist (eg. unused nix paths from /etc/zshenv)
+# so compinit doesn't waste time statting dead directories
+fpath=($^fpath(N-/))
 
 # antidote plugins
-antidote bundle <<EOBUNDLES
-  sorin-ionescu/prezto path:modules/completion
-  zsh-users/zsh-autosuggestions
-
-  ohmyzsh/ohmyzsh path:lib/history.zsh
-  ohmyzsh/ohmyzsh path:plugins/mise
-  ohmyzsh/ohmyzsh path:plugins/brew
-  ohmyzsh/ohmyzsh path:plugins/common-aliases
-  ohmyzsh/ohmyzsh path:plugins/fzf
-  ohmyzsh/ohmyzsh path:plugins/git
-  ohmyzsh/ohmyzsh path:plugins/kubectl
-  ohmyzsh/ohmyzsh path:plugins/ssh-agent
-
-  zpm-zsh/ls kind:defer
-  zpm-zsh/dircolors-neutral
-  atuinsh/atuin
-
-  $HOME/.zsh_conf/plugins/alias
-  $HOME/.zsh_conf/plugins/hosts
-  $HOME/.zsh_conf/plugins/coloncolon
-
-  # defer
-  $HOME/.zsh_conf/plugins/alwaystmux kind:defer
-  zdharma-continuum/fast-syntax-highlighting kind:defer
-
-EOBUNDLES
+# plugin list lives in ~/.zsh_plugins.txt; antidote compiles it to
+# ~/.zsh_plugins.zsh and only recompiles when the txt file changes
+antidote load
 
 export PATH="$HOOME:/bin:$HOME/.local/bin:$PATH"
 
@@ -49,4 +31,13 @@ export PATH="$HOOME:/bin:$HOME/.local/bin:$PATH"
   export TMUX_AUTO_START=off
 {% endif %}
 
-eval "$(oh-my-posh init zsh --config ~/.ohmyposh.yaml)"
+# cache oh-my-posh's generated init script; only regenerate when the
+# config file changes instead of shelling out to oh-my-posh every shell start
+_omp_cache="$ZSH_CACHE_DIR/omp_init.zsh"
+if [[ ! -s "$_omp_cache" || ~/.ohmyposh.yaml -nt "$_omp_cache" ]]; then
+  oh-my-posh init zsh --config ~/.ohmyposh.yaml > "$_omp_cache"
+fi
+source "$_omp_cache"
+# the cached script bakes in a fixed session id; give each shell its own
+export POSH_SESSION_ID="${$}-${RANDOM}${RANDOM}"
+unset _omp_cache

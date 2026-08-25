@@ -25,9 +25,13 @@ fpath=($^fpath(N-/))
 # ~/.zsh_plugins.zsh and only recompiles when the txt file changes
 antidote load
 
-export PATH="$HOME:/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 {% if yadm.hostname == "endeavour" %}
+  export TMUX_AUTO_START=off
+{% endif %}
+
+{% if yadm.hostname == "docker-nixos" %}
   export TMUX_AUTO_START=off
 {% endif %}
 

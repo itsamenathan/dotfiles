@@ -25,19 +25,12 @@ fpath=($^fpath(N-/))
 # ~/.zsh_plugins.zsh and only recompiles when the txt file changes
 antidote load
 
-export PATH="$HOOME:/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME:/bin:$HOME/.local/bin:$PATH"
 
 {% if yadm.hostname == "endeavour" %}
   export TMUX_AUTO_START=off
 {% endif %}
 
-# cache oh-my-posh's generated init script; only regenerate when the
-# config file changes instead of shelling out to oh-my-posh every shell start
-_omp_cache="$ZSH_CACHE_DIR/omp_init.zsh"
-if [[ ! -s "$_omp_cache" || ~/.ohmyposh.yaml -nt "$_omp_cache" ]]; then
-  oh-my-posh init zsh --config ~/.ohmyposh.yaml > "$_omp_cache"
-fi
-source "$_omp_cache"
-# the cached script bakes in a fixed session id; give each shell its own
-export POSH_SESSION_ID="${$}-${RANDOM}${RANDOM}"
-unset _omp_cache
+# Let Oh My Posh create a fresh session for each shell. Its own cache handles
+# the generated init code and keeps the selected config associated with it.
+eval "$(oh-my-posh init zsh --config ~/.ohmyposh.yaml)"

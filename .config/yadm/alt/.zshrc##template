@@ -31,10 +31,6 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
   export TMUX_AUTO_START=off
 {% endif %}
 
-{% if yadm.hostname == "docker-nixos" %}
-  export TMUX_AUTO_START=off
-{% endif %}
-
 # Let Oh My Posh create a fresh session for each shell. Its own cache handles
 # the generated init code and keeps the selected config associated with it.
 eval "$(oh-my-posh init zsh --config ~/.ohmyposh.yaml)"

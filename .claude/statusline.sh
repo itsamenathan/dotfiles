@@ -22,7 +22,10 @@ fmt_duration() {
   fi
 }
 
-parts=("🤖 $model")
+model_warn=""
+[[ "$model" == *[Oo]pus* ]] && model_warn=" 💸"
+
+parts=("$model_warn 🤖 $model")
 
 [[ -n "$ctx_pct" ]] && parts+=("🧠 ${ctx_pct}%")
 

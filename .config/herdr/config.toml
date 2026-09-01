@@ -1,0 +1,18 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+z"
+move_tab_previous = "prefix+<"
+move_tab_next = "prefix+>"
+split_vertical = "prefix+|"
+
+[ui.toast]
+delivery = "system"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+prompt_new_tab_name = false
+status_indicators = "dots"
+
+[remote]
+manage_ssh_config = false

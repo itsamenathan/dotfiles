@@ -8,7 +8,7 @@ ohmyzsh/ohmyzsh path:plugins/common-aliases
 ohmyzsh/ohmyzsh path:plugins/fzf
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/kubectl
-ohmyzsh/ohmyzsh path:plugins/ssh-agent kind:defer
+ohmyzsh/ohmyzsh path:plugins/ssh-agent
 
 zpm-zsh/ls kind:defer
 zpm-zsh/dircolors-neutral

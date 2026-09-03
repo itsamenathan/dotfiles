@@ -1,26 +1,9 @@
-[diff "sopsdiffer"]
-	textconv = sops -d
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
 [user]
-	name = Nathan Warner
-        email = nathan@frcv.net
-[push]
-	default = current
-	autoSetupRemote = true
-[alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
-	last = log -1 HEAD
-	squash = reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
-[pull]
-	rebase = false
-
-[includeIf "gitdir:~/gitlab/"]
-    path = ~/gitlab/.gitconfig
-[branch]
-	autoSetupMerge = simple
-[credential]
-	helper = osxkeychain
-[lfs]
-	concurrenttransfers = 32
+	email = nathan@frcv.net
+	name = Nathan

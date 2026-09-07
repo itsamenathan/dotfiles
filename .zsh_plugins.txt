@@ -12,7 +12,6 @@ ohmyzsh/ohmyzsh path:plugins/ssh-agent
 
 zpm-zsh/ls kind:defer
 zpm-zsh/dircolors-neutral
-atuinsh/atuin
 
 $HOME/.zsh_conf/plugins/alias
 $HOME/.zsh_conf/plugins/hosts
